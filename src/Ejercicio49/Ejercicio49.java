@@ -4,8 +4,11 @@ public class Ejercicio49 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-System.out.println("Digite la cantidad de posiciones (s) del vector:");
-int s=teclado.nextInt();
+int s;
+do {
+    System.out.println("Digite la cantidad de posiciones (s) del vector (mayor que 0):");
+    s=teclado.nextInt();
+} while (s<=0);
 int[] vector=new int[s];
 int suma=0;
 for (int i=0;i<s;i++){
