@@ -15,6 +15,7 @@ public static void main(String[] args){
 System.out.println("*** JUEGO DEL AHORCADO ***");
 do {
     System.out.println();
+    System.out.println(dibujo(errores));
     System.out.println("----------------------------------");
     System.out.println("Palabra: "+new String(adivinado).replace("", " ").trim());
     System.out.println("Errores: "+errores+" de "+intentosMax);
@@ -40,6 +41,19 @@ if (new String(adivinado).indexOf('_')==-1){
     System.out.println("\nPerdiste. La palabra era: "+palabra);
 }
 
+}
+
+public static String dibujo(int errores){
+    String[] etapas={
+        "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
+    };
+    return etapas[errores];
 }
 
 }
