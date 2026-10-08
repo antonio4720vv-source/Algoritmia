@@ -15,9 +15,11 @@ public static void main(String[] args){
 System.out.println("*** JUEGO DEL AHORCADO ***");
 do {
     System.out.println();
-    System.out.println(new String(adivinado).replace("", " ").trim());
+    System.out.println("----------------------------------");
+    System.out.println("Palabra: "+new String(adivinado).replace("", " ").trim());
     System.out.println("Errores: "+errores+" de "+intentosMax);
-    System.out.println("Digite una letra:");
+    System.out.println("----------------------------------");
+    System.out.println("Escribe una letra y presiona Enter:");
     char letra=teclado.next().toLowerCase().charAt(0);
     boolean acierto=false;
     for (int i=0;i<palabra.length();i++){
