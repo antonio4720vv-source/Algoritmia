@@ -13,8 +13,12 @@ for (int i=0;i<s;i++){
 }
 System.out.println("Vector cargado:");
 for (int i=0;i<s;i++){
-    System.out.println("vector["+i+"] = "+vector[i]);
+    System.out.print("["+vector[i]+"]");
+    if (i<s-1){
+        System.out.print("-");
+    }
 }
+System.out.println();
 
 }
 
