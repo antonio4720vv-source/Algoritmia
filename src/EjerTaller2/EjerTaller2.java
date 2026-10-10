@@ -21,14 +21,10 @@ for (int i=0;i<n;i++){
 }
 int iguales=0;
 for (int i=0;i<n;i++){
-    boolean encontrado=false;
-    for (int j=0;j<n && !encontrado;j++){
+    for (int j=0;j<n;j++){
         if (vectorA[i]==vectorB[j]){
-            encontrado=true;
+            iguales++;
         }
-    }
-    if (encontrado){
-        iguales++;
     }
 }
 System.out.println("Vector A:");
@@ -47,7 +43,7 @@ for (int i=0;i<n;i++){
     }
 }
 System.out.println();
-System.out.println("Cantidad de numeros del vector A que estan tambien en el vector B: "+iguales);
+System.out.println("Cantidad de numeros iguales entre los vectores: "+iguales);
 
 }
 
