@@ -6,8 +6,18 @@ public class JuegoPicas {
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
     Random azar=new Random();
-int[] secreto=new int[4];
-for (int i=0; i<4; i++){
+int cifras;
+do {
+    System.out.println("¿De cuántas cifras es el número? (de 1 a 6):");
+    cifras=teclado.nextInt();
+} while (cifras<1 || cifras>6);
+int oportunidades;
+do {
+    System.out.println("¿Cuántas oportunidades desea? (de 1 a 3):");
+    oportunidades=teclado.nextInt();
+} while (oportunidades<1 || oportunidades>3);
+int[] secreto=new int[cifras];
+for (int i=0; i<cifras; i++){
     int d;
     boolean repetido;
     do {
@@ -19,30 +29,25 @@ for (int i=0; i<4; i++){
     } while (repetido);
     secreto[i]=d;
 }
-System.out.println("Juego de picas: adivine el número secreto de 4 cifras distintas.");
+System.out.println("Juego de picas: adivine el número secreto de "+cifras+" cifras distintas.");
 System.out.println("Fija = dígito correcto en la posición correcta. Pica = dígito correcto en otra posición.");
-int oportunidades;
-do {
-    System.out.println("¿Cuántas oportunidades desea? (máximo 3):");
-    oportunidades=teclado.nextInt();
-} while (oportunidades<1 || oportunidades>3);
 int intentos=0;
 int fijas=0;
-while (intentos<oportunidades && fijas<4){
+while (intentos<oportunidades && fijas<cifras){
     System.out.println("Oportunidad "+(intentos+1)+" de "+oportunidades+".");
-    int[] intento=leerIntento(teclado);
+    int[] intento=leerIntento(teclado,cifras);
     intentos++;
     fijas=0;
     int picas=0;
-    for (int i=0; i<4; i++){
+    for (int i=0; i<cifras; i++){
         if (intento[i]==secreto[i]) fijas++;
-        for (int j=0; j<4; j++){
+        for (int j=0; j<cifras; j++){
             if (i!=j && intento[i]==secreto[j]) picas++;
         }
     }
     System.out.println("Fijas: "+fijas+"  Picas: "+picas);
 }
-if (fijas==4){
+if (fijas==cifras){
     System.out.println("¡Felicidades! Adivinó el número en "+intentos+" intentos.");
 } else {
     System.out.println("Se acabaron las oportunidades. Perdió.");
@@ -50,17 +55,17 @@ if (fijas==4){
 
 }
 
-static int[] leerIntento(Scanner teclado){
+static int[] leerIntento(Scanner teclado, int cifras){
     while (true){
-        System.out.println("Digite un número de 4 cifras distintas:");
+        System.out.println("Digite un número de "+cifras+" cifras distintas:");
         String texto=teclado.next();
-        if (texto.length()!=4 || !texto.matches("[0-9]{4}")){
-            System.out.println("Debe digitar exactamente 4 dígitos.");
+        if (texto.length()!=cifras || !texto.matches("[0-9]+")){
+            System.out.println("Debe digitar exactamente "+cifras+" dígitos.");
             continue;
         }
-        int[] n=new int[4];
+        int[] n=new int[cifras];
         boolean valido=true;
-        for (int i=0; i<4; i++){
+        for (int i=0; i<cifras; i++){
             n[i]=texto.charAt(i)-'0';
             for (int j=0; j<i; j++){
                 if (n[j]==n[i]) valido=false;
