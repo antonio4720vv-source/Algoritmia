@@ -21,9 +21,15 @@ for (int i=0; i<4; i++){
 }
 System.out.println("Juego de picas: adivine el número secreto de 4 cifras distintas.");
 System.out.println("Fija = dígito correcto en la posición correcta. Pica = dígito correcto en otra posición.");
-int intentos=0;
-int fijas;
+int oportunidades;
 do {
+    System.out.println("¿Cuántas oportunidades desea? (máximo 3):");
+    oportunidades=teclado.nextInt();
+} while (oportunidades<1 || oportunidades>3);
+int intentos=0;
+int fijas=0;
+while (intentos<oportunidades && fijas<4){
+    System.out.println("Oportunidad "+(intentos+1)+" de "+oportunidades+".");
     int[] intento=leerIntento(teclado);
     intentos++;
     fijas=0;
@@ -35,8 +41,12 @@ do {
         }
     }
     System.out.println("Fijas: "+fijas+"  Picas: "+picas);
-} while (fijas<4);
-System.out.println("¡Felicidades! Adivinó el número en "+intentos+" intentos.");
+}
+if (fijas==4){
+    System.out.println("¡Felicidades! Adivinó el número en "+intentos+" intentos.");
+} else {
+    System.out.println("Se acabaron las oportunidades. Perdió.");
+}
 
 }
 
