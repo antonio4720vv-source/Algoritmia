@@ -1,31 +1,24 @@
 package Advinador;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 public class Advinador {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-    Random azar=new Random();
 int cifras;
 do {
-    System.out.println("¿De cuántas cifras es el número? (de 1 a 6):");
+    System.out.println("¿De cuántas cifras es el número? (de 1 a 5):");
     cifras=teclado.nextInt();
-} while (cifras<1 || cifras>6);
-int oportunidades;
-do {
-    System.out.println("¿Cuántas oportunidades tengo? (de 1 a 3):");
-    oportunidades=teclado.nextInt();
-} while (oportunidades<1 || oportunidades>3);
+} while (cifras<1 || cifras>5);
 ArrayList<int[]> candidatos=new ArrayList<>();
 generar(new int[cifras],0,candidatos);
-System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar en "+oportunidades+" oportunidades.");
+System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar.");
 System.out.println("Responda con las fijas (dígito y posición correctos) y las picas (dígito correcto en otra posición).");
 int intentos=0;
-while (intentos<oportunidades && !candidatos.isEmpty()){
-    int[] propuesta=mejorPropuesta(candidatos,azar);
+while (!candidatos.isEmpty()){
+    int[] propuesta=mejorPropuesta(candidatos);
     intentos++;
-    System.out.println("Oportunidad "+intentos+" de "+oportunidades+": ¿su número es "+texto(propuesta)+"?");
+    System.out.println("Intento "+intentos+": ¿su número es "+texto(propuesta)+"?");
     int fijas;
     int picas;
     do {
@@ -48,7 +41,6 @@ while (intentos<oportunidades && !candidatos.isEmpty()){
     }
     candidatos=nuevos;
 }
-System.out.println("No lo adiviné en "+oportunidades+" oportunidades.");
 
 }
 
@@ -69,15 +61,14 @@ static void generar(int[] actual, int pos, ArrayList<int[]> res){
     }
 }
 
-static int[] mejorPropuesta(ArrayList<int[]> candidatos, Random azar){
-    int revisar=Math.min(candidatos.size(),500);
+static int[] mejorPropuesta(ArrayList<int[]> candidatos){
     int[] mejor=candidatos.get(0);
     int mejorPeor=Integer.MAX_VALUE;
-    for (int k=0; k<revisar; k++){
-        int[] g=candidatos.get(candidatos.size()<=500 ? k : azar.nextInt(candidatos.size()));
-        int[] cuenta=new int[(g.length+1)*(g.length+1)];
+    int n=mejor.length;
+    for (int[] g : candidatos){
+        int[] cuenta=new int[(n+1)*(n+1)];
         for (int[] c : candidatos){
-            cuenta[fijasEntre(g,c)*(g.length+1)+picasEntre(g,c)]++;
+            cuenta[fijasEntre(g,c)*(n+1)+picasEntre(g,c)]++;
         }
         int peor=0;
         for (int x : cuenta){
