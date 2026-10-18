@@ -1,27 +1,29 @@
 package Advinador;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 public class Advinador {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-    final int oportunidades=3;
+    Random azar=new Random();
+int cifras;
+do {
+    System.out.println("¿De cuántas cifras es el número? (de 1 a 6):");
+    cifras=teclado.nextInt();
+} while (cifras<1 || cifras>6);
+int oportunidades;
+do {
+    System.out.println("¿Cuántas oportunidades tengo? (de 1 a 3):");
+    oportunidades=teclado.nextInt();
+} while (oportunidades<1 || oportunidades>3);
 ArrayList<int[]> candidatos=new ArrayList<>();
-for (int a=0; a<10; a++){
-    for (int b=0; b<10; b++){
-        for (int c=0; c<10; c++){
-            for (int d=0; d<10; d++){
-                int[] n={a,b,c,d};
-                if (distintos(n)) candidatos.add(n);
-            }
-        }
-    }
-}
-System.out.println("Piense en un número de 4 cifras distintas. Yo lo voy a adivinar en "+oportunidades+" oportunidades.");
+generar(new int[cifras],0,candidatos);
+System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar en "+oportunidades+" oportunidades.");
 System.out.println("Responda con las fijas (dígito y posición correctos) y las picas (dígito correcto en otra posición).");
 int intentos=0;
 while (intentos<oportunidades && !candidatos.isEmpty()){
-    int[] propuesta=mejorPropuesta(candidatos);
+    int[] propuesta=mejorPropuesta(candidatos,azar);
     intentos++;
     System.out.println("Oportunidad "+intentos+" de "+oportunidades+": ¿su número es "+texto(propuesta)+"?");
     int fijas;
@@ -31,8 +33,8 @@ while (intentos<oportunidades && !candidatos.isEmpty()){
         fijas=teclado.nextInt();
         System.out.println("Digite las picas:");
         picas=teclado.nextInt();
-    } while (fijas<0 || picas<0 || fijas+picas>4);
-    if (fijas==4){
+    } while (fijas<0 || picas<0 || fijas+picas>cifras);
+    if (fijas==cifras){
         System.out.println("¡Lo adiviné! Su número es "+texto(propuesta)+" (intentos: "+intentos+").");
         return;
     }
@@ -50,13 +52,32 @@ System.out.println("No lo adiviné en "+oportunidades+" oportunidades.");
 
 }
 
-static int[] mejorPropuesta(ArrayList<int[]> candidatos){
+static void generar(int[] actual, int pos, ArrayList<int[]> res){
+    if (pos==actual.length){
+        res.add(actual.clone());
+        return;
+    }
+    for (int d=0; d<10; d++){
+        boolean usado=false;
+        for (int j=0; j<pos; j++){
+            if (actual[j]==d) usado=true;
+        }
+        if (!usado){
+            actual[pos]=d;
+            generar(actual,pos+1,res);
+        }
+    }
+}
+
+static int[] mejorPropuesta(ArrayList<int[]> candidatos, Random azar){
+    int revisar=Math.min(candidatos.size(),500);
     int[] mejor=candidatos.get(0);
     int mejorPeor=Integer.MAX_VALUE;
-    for (int[] g : candidatos){
-        int[] cuenta=new int[25];
+    for (int k=0; k<revisar; k++){
+        int[] g=candidatos.get(candidatos.size()<=500 ? k : azar.nextInt(candidatos.size()));
+        int[] cuenta=new int[(g.length+1)*(g.length+1)];
         for (int[] c : candidatos){
-            cuenta[fijasEntre(g,c)*5+picasEntre(g,c)]++;
+            cuenta[fijasEntre(g,c)*(g.length+1)+picasEntre(g,c)]++;
         }
         int peor=0;
         for (int x : cuenta){
@@ -70,18 +91,9 @@ static int[] mejorPropuesta(ArrayList<int[]> candidatos){
     return mejor;
 }
 
-static boolean distintos(int[] n){
-    for (int i=0; i<n.length; i++){
-        for (int j=0; j<i; j++){
-            if (n[i]==n[j]) return false;
-        }
-    }
-    return true;
-}
-
 static int fijasEntre(int[] intento, int[] secreto){
     int fijas=0;
-    for (int i=0; i<4; i++){
+    for (int i=0; i<intento.length; i++){
         if (intento[i]==secreto[i]) fijas++;
     }
     return fijas;
@@ -89,8 +101,8 @@ static int fijasEntre(int[] intento, int[] secreto){
 
 static int picasEntre(int[] intento, int[] secreto){
     int picas=0;
-    for (int i=0; i<4; i++){
-        for (int j=0; j<4; j++){
+    for (int i=0; i<intento.length; i++){
+        for (int j=0; j<secreto.length; j++){
             if (i!=j && intento[i]==secreto[j]) picas++;
         }
     }
@@ -98,7 +110,9 @@ static int picasEntre(int[] intento, int[] secreto){
 }
 
 static String texto(int[] n){
-    return ""+n[0]+n[1]+n[2]+n[3];
+    String s="";
+    for (int d : n) s+=d;
+    return s;
 }
 
 }
