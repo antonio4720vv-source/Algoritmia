@@ -10,15 +10,21 @@ do {
     System.out.println("¿De cuántas cifras es el número? (de 1 a 5):");
     cifras=teclado.nextInt();
 } while (cifras<1 || cifras>5);
+int minimo=oportunidadesGarantizadas(cifras);
+int oportunidades;
+do {
+    System.out.println("¿Cuántas oportunidades tengo? (de "+minimo+" a 10):");
+    oportunidades=teclado.nextInt();
+} while (oportunidades<minimo || oportunidades>10);
 ArrayList<int[]> candidatos=new ArrayList<>();
 generar(new int[cifras],0,candidatos);
-System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar.");
+System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar en "+oportunidades+" oportunidades.");
 System.out.println("Responda con las fijas (dígito y posición correctos) y las picas (dígito correcto en otra posición).");
 int intentos=0;
-while (!candidatos.isEmpty()){
+while (intentos<oportunidades && !candidatos.isEmpty()){
     int[] propuesta=mejorPropuesta(candidatos);
     intentos++;
-    System.out.println("Intento "+intentos+": ¿su número es "+texto(propuesta)+"?");
+    System.out.println("Oportunidad "+intentos+" de "+oportunidades+": ¿su número es "+texto(propuesta)+"?");
     int fijas;
     int picas;
     do {
@@ -28,7 +34,7 @@ while (!candidatos.isEmpty()){
         picas=teclado.nextInt();
     } while (fijas<0 || picas<0 || fijas+picas>cifras);
     if (fijas==cifras){
-        System.out.println("¡Lo adiviné! Su número es "+texto(propuesta)+" (intentos: "+intentos+").");
+        System.out.println("¡Lo adiviné! Su número es "+texto(propuesta)+" (oportunidades usadas: "+intentos+").");
         return;
     }
     ArrayList<int[]> nuevos=new ArrayList<>();
@@ -41,7 +47,13 @@ while (!candidatos.isEmpty()){
     }
     candidatos=nuevos;
 }
+System.out.println("No lo adiviné en "+oportunidades+" oportunidades.");
 
+}
+
+static int oportunidadesGarantizadas(int cifras){
+    int[] minimos={0,10,9,8,8,9};
+    return minimos[cifras];
 }
 
 static void generar(int[] actual, int pos, ArrayList<int[]> res){
