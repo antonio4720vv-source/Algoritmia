@@ -5,17 +5,12 @@ public class Advinador {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
+    final int oportunidades=3;
 int cifras;
 do {
     System.out.println("¿De cuántas cifras es el número? (de 1 a 5):");
     cifras=teclado.nextInt();
 } while (cifras<1 || cifras>5);
-int minimo=oportunidadesGarantizadas(cifras);
-int oportunidades;
-do {
-    System.out.println("¿Cuántas oportunidades tengo? (de "+minimo+" a 10):");
-    oportunidades=teclado.nextInt();
-} while (oportunidades<minimo || oportunidades>10);
 ArrayList<int[]> candidatos=new ArrayList<>();
 generar(new int[cifras],0,candidatos);
 System.out.println("Piense en un número de "+cifras+" cifras distintas. Yo lo voy a adivinar en "+oportunidades+" oportunidades.");
@@ -49,11 +44,6 @@ while (intentos<oportunidades && !candidatos.isEmpty()){
 }
 System.out.println("No lo adiviné en "+oportunidades+" oportunidades.");
 
-}
-
-static int oportunidadesGarantizadas(int cifras){
-    int[] minimos={0,10,9,8,8,9};
-    return minimos[cifras];
 }
 
 static void generar(int[] actual, int pos, ArrayList<int[]> res){
