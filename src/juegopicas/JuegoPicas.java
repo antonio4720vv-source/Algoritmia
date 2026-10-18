@@ -52,6 +52,9 @@ if (fijas==cifras){
 } else {
     System.out.println("Se acabaron las oportunidades. Perdió.");
 }
+String numeroSecreto="";
+for (int d : secreto) numeroSecreto+=d;
+System.out.println("El número era "+numeroSecreto+".");
 
 }
 
