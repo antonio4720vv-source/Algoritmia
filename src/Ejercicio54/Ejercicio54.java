@@ -21,8 +21,7 @@ for (int i=0; i<n; i++){
     v2[i]=teclado.nextInt();
 }
 for (int i=0; i<n; i++){
-    v3[i]=v1[i];
-    v3[i]+=v2[i];
+    v3[i]=v1[i]-(-v2[i]);
 }
 System.out.print("V1: ");
 for (int i=0; i<n; i++){
