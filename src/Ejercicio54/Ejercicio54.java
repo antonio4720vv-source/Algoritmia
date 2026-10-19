@@ -20,9 +20,7 @@ for (int i=0; i<n; i++){
     System.out.println("V2 - digite el valor de la posicion "+i+":");
     v2[i]=teclado.nextInt();
 }
-for (int i=0; i<n; i++){
-    v3[i]=v1[i]+v2[i];
-}
+v3=sumarVectores(v1,v2);
 System.out.print("V1: ");
 for (int i=0; i<n; i++){
     System.out.print(v1[i]+" ");
@@ -39,6 +37,16 @@ for (int i=0; i<n; i++){
 }
 System.out.println();
 
+}
+
+static int[] sumarVectores(int[] v1, int[] v2){
+    int[] resultado=new int[v1.length];
+    int i=0;
+    while (i<v1.length){
+        resultado[i]=v1[i]+v2[i];
+        i++;
+    }
+    return resultado;
 }
 
 }
