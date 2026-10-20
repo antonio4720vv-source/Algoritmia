@@ -51,12 +51,42 @@ public static void main(String[] args){
 static void imprimirMatriz(int[][] matriz){
     int i = 0;
     int j = 0;
+    int ancho = anchoMaximo(matriz);
+    String texto = "";
+    int izquierda = 0;
+    int derecha = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
-            System.out.printf("[%4d] ", matriz[i][j]);
+            texto = String.valueOf(matriz[i][j]);
+            izquierda = (ancho - texto.length()) / 2;
+            derecha = ancho - texto.length() - izquierda;
+            System.out.print("[" + espacios(izquierda) + texto + espacios(derecha) + "] ");
         }
         System.out.println();
     }
+}
+
+static int anchoMaximo(int[][] matriz){
+    int ancho = 0;
+    int i = 0;
+    int j = 0;
+    for (i = 0; i < matriz.length; i++){
+        for (j = 0; j < matriz.length; j++){
+            if (String.valueOf(matriz[i][j]).length() > ancho){
+                ancho = String.valueOf(matriz[i][j]).length();
+            }
+        }
+    }
+    return ancho;
+}
+
+static String espacios(int cantidad){
+    String resultado = "";
+    int k = 0;
+    for (k = 0; k < cantidad; k++){
+        resultado = resultado + " ";
+    }
+    return resultado;
 }
 
 static int sumaDiagonalPrincipal(int[][] matriz){

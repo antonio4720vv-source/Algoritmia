@@ -99,11 +99,11 @@ Salida esperada con los valores del taller:
 
 ```
 Matriz:
-[  81] [  47] [  67] [  76] [  24] 
-[  20] [   1] [  62] [  30] [  58] 
-[  59] [  80] [  94] [   1] [  91] 
-[  23] [  17] [  63] [  25] [  29] 
-[  86] [  70] [  16] [  63] [  35] 
+[81] [47] [67] [76] [24] 
+[20] [1 ] [62] [30] [58] 
+[59] [80] [94] [1 ] [91] 
+[23] [17] [63] [25] [29] 
+[86] [70] [16] [63] [35] 
 3.1 Diagonal principal (i == j): 236
 3.2 Diagonal secundaria (i + j == n-1): 251
 3.3 Triangular superior (diagonal principal, i < j): 485
@@ -124,4 +124,6 @@ java EjercicioMatriz.EjercicioMatriz
 
 Digite los 25 valores por filas, uno por uno.
 
-En la impresión, cada valor se escribe con `printf("[%4d] ", ...)`: el `%4d` reserva 4 espacios para el número, así las columnas quedan alineadas aunque los números tengan distinta cantidad de cifras.
+En la impresión, cada valor se escribe entre corchetes y centrado dentro de un ancho igual para todos: el ancho es la cantidad de cifras del número más largo de la matriz (`anchoMaximo`). Un número se centra poniendo `(ancho - cifras) / 2` espacios a la izquierda y el resto a la derecha (`espacios`). Así todas las columnas quedan alineadas.
+
+Los números de 1 cifra no caben exactamente en el centro cuando hay números de 2 cifras (sobra un espacio), por eso el `1` aparece como `[1 ]`.
