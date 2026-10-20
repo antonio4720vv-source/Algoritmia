@@ -56,24 +56,31 @@ Ejemplo de la diagonal principal:
 
 ```java
 static int sumaDiagonalPrincipal(int[][] matriz){
-    int suma = 0;
-    for (int i = 0; i < matriz.length; i++){
-        for (int j = 0; j < matriz.length; j++){
-            if (i == j) suma += matriz[i][j];
+    int suma;
+    int i;
+    int j;
+    suma = 0;
+    for (i = 0; i < matriz.length; i++){
+        for (j = 0; j < matriz.length; j++){
+            if (i == j){
+                suma = suma + matriz[i][j];
+            }
         }
     }
     return suma;
 }
 ```
 
+Las variables (`suma`, `i`, `j`) se declaran al inicio del método, y después se les asigna el valor.
+
 Por ejemplo, en la diagonal principal la posición `(0,0)` vale 81, `(1,1)` vale 1, `(2,2)` vale 94, `(3,3)` vale 25 y `(4,4)` vale 35. Su suma es 81 + 1 + 94 + 25 + 35 = 236.
 
 **Acumulado por fila (3.8):** se reinicia el acumulado en cada fila. Un ciclo para la fila `i` y dentro otro para recorrer sus columnas `j`.
 
 ```java
-int acumulado = 0;
-for (int j = 0; j < n; j++){
-    acumulado += matriz[i][j];
+acumulado = 0;
+for (j = 0; j < n; j++){
+    acumulado = acumulado + matriz[i][j];
 }
 resultado[i] = acumulado;
 ```
