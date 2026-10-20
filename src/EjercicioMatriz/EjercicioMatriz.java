@@ -4,17 +4,13 @@ public class EjercicioMatriz {
 
 public static void main(String[] args){
     // Variables del programa principal, todas declaradas al inicio
-    Scanner teclado;
-    int n;
-    int[][] matriz;
-    int i;
-    int j;
-    int[] filas;
-    int[] columnas;
-
-    teclado = new Scanner(System.in);
-    n = 5;
-    matriz = new int[n][n];
+    Scanner teclado = new Scanner(System.in);
+    int n = 5;
+    int[][] matriz = new int[n][n];
+    int i = 0;
+    int j = 0;
+    int[] filas = new int[n];
+    int[] columnas = new int[n];
 
     // Paso 2: llenar la matriz, fila por fila
     for (i = 0; i < n; i++){
@@ -53,8 +49,8 @@ public static void main(String[] args){
 }
 
 static void imprimirMatriz(int[][] matriz){
-    int i;
-    int j;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             System.out.print(matriz[i][j] + "\t");
@@ -64,10 +60,9 @@ static void imprimirMatriz(int[][] matriz){
 }
 
 static int sumaDiagonalPrincipal(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i == j){
@@ -79,10 +74,9 @@ static int sumaDiagonalPrincipal(int[][] matriz){
 }
 
 static int sumaDiagonalSecundaria(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i + j == matriz.length - 1){
@@ -94,10 +88,9 @@ static int sumaDiagonalSecundaria(int[][] matriz){
 }
 
 static int sumaTriangularSuperior(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i < j){
@@ -109,10 +102,9 @@ static int sumaTriangularSuperior(int[][] matriz){
 }
 
 static int sumaTriangularInferior(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i > j){
@@ -124,10 +116,9 @@ static int sumaTriangularInferior(int[][] matriz){
 }
 
 static int sumaSuperiorSecundaria(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i + j < matriz.length - 1){
@@ -139,10 +130,9 @@ static int sumaSuperiorSecundaria(int[][] matriz){
 }
 
 static int sumaInferiorSecundaria(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             if (i + j > matriz.length - 1){
@@ -154,10 +144,9 @@ static int sumaInferiorSecundaria(int[][] matriz){
 }
 
 static int sumaTotal(int[][] matriz){
-    int suma;
-    int i;
-    int j;
-    suma = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
             suma = suma + matriz[i][j];
@@ -167,11 +156,10 @@ static int sumaTotal(int[][] matriz){
 }
 
 static int[] sumaFilas(int[][] matriz){
-    int[] resultado;
-    int acumulado;
-    int i;
-    int j;
-    resultado = new int[matriz.length];
+    int[] resultado = new int[matriz.length];
+    int acumulado = 0;
+    int i = 0;
+    int j = 0;
     for (i = 0; i < matriz.length; i++){
         acumulado = 0;
         for (j = 0; j < matriz.length; j++){
@@ -183,11 +171,10 @@ static int[] sumaFilas(int[][] matriz){
 }
 
 static int[] sumaColumnas(int[][] matriz){
-    int[] resultado;
-    int acumulado;
-    int i;
-    int j;
-    resultado = new int[matriz.length];
+    int[] resultado = new int[matriz.length];
+    int acumulado = 0;
+    int i = 0;
+    int j = 0;
     for (j = 0; j < matriz.length; j++){
         acumulado = 0;
         for (i = 0; i < matriz.length; i++){
