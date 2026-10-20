@@ -53,10 +53,7 @@ static void imprimirMatriz(int[][] matriz){
     int j = 0;
     for (i = 0; i < matriz.length; i++){
         for (j = 0; j < matriz.length; j++){
-            System.out.print("[" + matriz[i][j] + "]");
-            if (j < matriz.length - 1){
-                System.out.print("\t");
-            }
+            System.out.printf("[%4d] ", matriz[i][j]);
         }
         System.out.println();
     }
