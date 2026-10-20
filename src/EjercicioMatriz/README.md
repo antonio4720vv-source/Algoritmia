@@ -99,11 +99,11 @@ Salida esperada con los valores del taller:
 
 ```
 Matriz:
-81	47	67	76	24
-20	1	62	30	58
-59	80	94	1	91
-23	17	63	25	29
-86	70	16	63	35
+[ 81	47	67	76	24 ]
+[ 20	1	62	30	58 ]
+[ 59	80	94	1	91 ]
+[ 23	17	63	25	29 ]
+[ 86	70	16	63	35 ]
 3.1 Diagonal principal (i == j): 236
 3.2 Diagonal secundaria (i + j == n-1): 251
 3.3 Triangular superior (diagonal principal, i < j): 485
