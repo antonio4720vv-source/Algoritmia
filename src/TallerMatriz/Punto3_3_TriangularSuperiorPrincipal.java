@@ -1,23 +1,28 @@
 package TallerMatriz;
+import java.util.Scanner;
 
 public class Punto3_3_TriangularSuperiorPrincipal {
 
 public static void main(String[] args){
-    // Punto 1: declarar la matriz de n x n (n = 5)
+    // Variables, todas declaradas al inicio
+    Scanner teclado = new Scanner(System.in);
     int n = 5;
     int[][] matriz = new int[n][n];
     int i = 0;
     int j = 0;
-    // Punto 2: llenar la matriz con valores enteros
-    matriz = new int[][]{
-            {81, 47, 67, 76, 24},
-            {20,  1, 62, 30, 58},
-            {59, 80, 94,  1, 91},
-            {23, 17, 63, 25, 29},
-            {86, 70, 16, 63, 35}
-        };
-    // Triangular superior de la diagonal principal: i es menor que j
     int suma = 0;
+
+    // Pedir los valores de la matriz, fila por fila
+    System.out.println("Digite los valores de la matriz (5 filas y 5 columnas):");
+    for (i = 0; i < n; i++){
+        for (j = 0; j < n; j++){
+            System.out.println("Valor de la posicion [" + i + "][" + j + "]:");
+            matriz[i][j] = teclado.nextInt();
+        }
+    }
+
+    // Arriba de la diagonal principal: i es menor que j
+    suma = 0;
     for (i = 0; i < n; i++){
         for (j = 0; j < n; j++){
             if (i < j){
