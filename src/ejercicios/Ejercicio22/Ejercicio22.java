@@ -4,27 +4,40 @@ public class Ejercicio22 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-int s;
+int n;
 do {
-    System.out.println("Digite la cantidad de posiciones (s) del vector (mayor que 0):");
-    s=teclado.nextInt();
-} while (s<=0);
-int[] vector=new int[s];
-int suma=0;
-for (int i=0;i<s;i++){
-    System.out.println("Digite el valor de la posicion "+i+":");
-    vector[i]=teclado.nextInt();
-    suma=suma+vector[i];
+    System.out.println("Digite el tamaño de los vectores (n):");
+    n=teclado.nextInt();
+} while (n<=0);
+int[] vector1=new int[n];
+int[] vector2=new int[n];
+int[] vector3=new int[n];
+for (int i=0; i<n; i++){
+    System.out.println("Vector 1 - digite el valor de la posicion "+i+":");
+    vector1[i]=teclado.nextInt();
 }
-System.out.println("Vector cargado:");
-for (int i=0;i<s;i++){
-    System.out.print("["+vector[i]+"]");
-    if (i<s-1){
-        System.out.print("-");
-    }
+for (int i=0; i<n; i++){
+    System.out.println("Vector 2 - digite el valor de la posicion "+i+":");
+    vector2[i]=teclado.nextInt();
+}
+for (int i=0; i<n; i++){
+    vector3[i]=vector1[i]+vector2[i];
+}
+System.out.print("Vector 1: ");
+for (int i=0; i<n; i++){
+    System.out.print(vector1[i]+" ");
 }
 System.out.println();
-System.out.println("La suma de todos los valores es: "+suma);
+System.out.print("Vector 2: ");
+for (int i=0; i<n; i++){
+    System.out.print(vector2[i]+" ");
+}
+System.out.println();
+System.out.print("Vector 3 (suma): ");
+for (int i=0; i<n; i++){
+    System.out.print(vector3[i]+" ");
+}
+System.out.println();
 
 }
 
