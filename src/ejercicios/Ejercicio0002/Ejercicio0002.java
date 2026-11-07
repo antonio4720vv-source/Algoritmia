@@ -1,20 +1,15 @@
-package ejercicios.Ejercicio24;
+package ejercicios.Ejercicio0002;
 import java.util.Scanner;
-public class Ejercicio24 {
+public class Ejercicio0002 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-int s;
-do {
-    System.out.println("Digite la cantidad de posiciones (s) del vector (mayor que 0):");
-    s=teclado.nextInt();
-} while (s<=0);
+System.out.println("Digite la cantidad de posiciones (s) del vector:");
+int s=teclado.nextInt();
 int[] vector=new int[s];
-int suma=0;
 for (int i=0;i<s;i++){
     System.out.println("Digite el valor de la posicion "+i+":");
     vector[i]=teclado.nextInt();
-    suma=suma+vector[i];
 }
 System.out.println("Vector cargado:");
 for (int i=0;i<s;i++){
@@ -24,7 +19,6 @@ for (int i=0;i<s;i++){
     }
 }
 System.out.println();
-System.out.println("La suma de todos los valores es: "+suma);
 
 }
 
