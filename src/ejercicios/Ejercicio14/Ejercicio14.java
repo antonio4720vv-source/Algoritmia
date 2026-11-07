@@ -4,15 +4,19 @@ public class Ejercicio14 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-System.out.println("Digite el primer numero (dividendo):");
-double a=teclado.nextDouble();
-double b;
+double sueldo;
 do {
-    System.out.println("Digite el segundo numero (divisor, diferente de 0):");
-    b=teclado.nextDouble();
-} while (b==0);
-double division=a/b;
-System.out.println(a+" / "+b+" = "+division);
+    System.out.println("Digite el sueldo del empleado (mayor que 0):");
+    sueldo=teclado.nextDouble();
+} while (sueldo<=0);
+double nuevoSueldo;
+if (sueldo<1000){
+    nuevoSueldo=sueldo+sueldo*0.10;
+} else {
+    nuevoSueldo=sueldo+sueldo*0.05;
+}
+System.out.println("Salario anterior: "+sueldo);
+System.out.println("Salario nuevo: "+nuevoSueldo);
 
 }
 

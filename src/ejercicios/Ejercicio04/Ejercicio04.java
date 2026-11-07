@@ -1,16 +1,16 @@
 package ejercicios.Ejercicio04;
 import java.util.Scanner;
 public class Ejercicio04 {
-
 public static void main(String[] args){
-    double Base=0,Altura=0,Area=0;
+    double N1,N2;
+    double Suma=0;
 Scanner teclado=new Scanner(System.in);
-System.out.println("Digite la base:");
-Base=teclado.nextDouble();
-System.out.println("Digite la Altura:");
-Altura= teclado.nextDouble();
-Area=(Base*Altura)/2;
-System.out.println("El Area es:"+Area);
+System.out.println("digite el primer numero");
+N1=teclado.nextDouble();
+System.out.println("digite el segundo numero");
+N2=teclado.nextDouble();
+Suma=N1+N2;
+System.out.println("el resultado es"+Suma);
 
 }
 

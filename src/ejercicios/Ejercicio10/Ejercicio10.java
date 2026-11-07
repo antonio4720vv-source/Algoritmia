@@ -4,17 +4,20 @@ public class Ejercicio10 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-double capital;
+double a;
 do {
-    System.out.println("Digite el valor del prestamo (mayor que 0):");
-    capital=teclado.nextDouble();
-} while (capital<=0);
-double interesMensual=capital*0.02;
-double interesAnual=interesMensual*12;
-double total=capital+interesAnual;
-System.out.println("Interes mensual (2%): "+interesMensual);
-System.out.println("Interes total en 12 meses: "+interesAnual);
-System.out.println("Monto total a pagar al cabo de 12 meses: "+total);
+    System.out.println("Digite el valor de A (diferente de 0):");
+    a=teclado.nextDouble();
+} while (a==0);
+System.out.println("Digite el valor de B:");
+double b=teclado.nextDouble();
+System.out.println("Digite el valor de C:");
+double c=teclado.nextDouble();
+System.out.println("Digite el valor de E:");
+double e=teclado.nextDouble();
+double x=a*b-b*c/a*e-8;
+System.out.println("X=A*B-B*C/A*E-8");
+System.out.println("El resultado de X es: "+x);
 
 }
 

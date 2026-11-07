@@ -1,11 +1,15 @@
 package ejercicios.Ejercicio02;
+
 public class Ejercicio02 {
-public static void main(String[] args) {
-    Double N1=3.5,N2=4.3,N3=2.2,Sum,Div;
-    Sum=N1+N2+N3;
-    Div=Sum/3;
-    System.out.println("el resultado es"+Div);
 
-}
+    public static void main(String[] suma) {
 
+        int Num1, Num2, Suma =0;
+        Num1=7;
+        Num2=8;
+        Suma=Num1+Num2;
+        System.out.println("El resultado de la suma de" + Num1 + "+" + Num2 + "=" + Suma );
+
+
+    }
 }

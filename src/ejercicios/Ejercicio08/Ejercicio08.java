@@ -4,11 +4,13 @@ public class Ejercicio08 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-System.out.println("Digite un numero entero:");
-int numero=teclado.nextInt();
-if (numero==5){
-    System.out.println("bien");
-}
+long dias;
+do {
+    System.out.println("Digite el numero de dias (mayor o igual a 0):");
+    dias=teclado.nextLong();
+} while (dias<0);
+long segundos=dias*24*60*60;
+System.out.println(dias+" dias tienen "+segundos+" segundos");
 
 }
 
