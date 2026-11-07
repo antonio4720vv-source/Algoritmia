@@ -4,40 +4,28 @@ public class Ejercicio18 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-int n;
+double parcial;
 do {
-    System.out.println("Digite el tamaño de los vectores (n):");
-    n=teclado.nextInt();
-} while (n<=0);
-int[] vector1=new int[n];
-int[] vector2=new int[n];
-int[] vector3=new int[n];
-for (int i=0; i<n; i++){
-    System.out.println("Vector 1 - digite el valor de la posicion "+i+":");
-    vector1[i]=teclado.nextInt();
+    System.out.println("Digite la nota del parcial (0.0 a 5.0) - vale 30%:");
+    parcial=teclado.nextDouble();
+} while (parcial<0 || parcial>5);
+double proyecto;
+do {
+    System.out.println("Digite la nota del proyecto (0.0 a 5.0) - vale 30%:");
+    proyecto=teclado.nextDouble();
+} while (proyecto<0 || proyecto>5);
+double examen;
+do {
+    System.out.println("Digite la nota del examen final (0.0 a 5.0) - vale 40%:");
+    examen=teclado.nextDouble();
+} while (examen<0 || examen>5);
+double definitiva=(parcial*30+proyecto*30+examen*40)/100;
+System.out.println("Nota definitiva: "+definitiva);
+if (definitiva>=3.0){
+    System.out.println("El estudiante aprueba");
+} else {
+    System.out.println("El estudiante reprueba");
 }
-for (int i=0; i<n; i++){
-    System.out.println("Vector 2 - digite el valor de la posicion "+i+":");
-    vector2[i]=teclado.nextInt();
-}
-for (int i=0; i<n; i++){
-    vector3[i]=vector1[i]+vector2[i];
-}
-System.out.print("Vector 1: ");
-for (int i=0; i<n; i++){
-    System.out.print(vector1[i]+" ");
-}
-System.out.println();
-System.out.print("Vector 2: ");
-for (int i=0; i<n; i++){
-    System.out.print(vector2[i]+" ");
-}
-System.out.println();
-System.out.print("Vector 3 (suma): ");
-for (int i=0; i<n; i++){
-    System.out.print(vector3[i]+" ");
-}
-System.out.println();
 
 }
 
