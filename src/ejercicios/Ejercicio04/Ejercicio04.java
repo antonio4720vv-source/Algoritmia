@@ -1,6 +1,6 @@
-package ejercicios.Ejercicio05;
+package ejercicios.Ejercicio04;
 import java.util.Scanner;
-public class Ejercicio5 {
+public class Ejercicio04 {
 
 public static void main(String[] args){
     double Base=0,Altura=0,Area=0;

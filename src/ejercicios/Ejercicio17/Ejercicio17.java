@@ -4,25 +4,40 @@ public class Ejercicio17 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-double boleta;
+int n;
 do {
-    System.out.println("Digite el valor de la boleta (mayor que 0):");
-    boleta=teclado.nextDouble();
-} while (boleta<=0);
-int opcion;
-do {
-    System.out.println("La persona es estudiante o adulto mayor? (1=si, 2=no):");
-    opcion=teclado.nextInt();
-} while (opcion!=1 && opcion!=2);
-double total;
-if (opcion==1){
-    total=boleta-boleta*0.20;
-    System.out.println("Tiene descuento del 20%");
-} else {
-    total=boleta;
-    System.out.println("No tiene descuento");
+    System.out.println("Digite el tamaño de los vectores (n):");
+    n=teclado.nextInt();
+} while (n<=0);
+int[] vector1=new int[n];
+int[] vector2=new int[n];
+int[] vector3=new int[n];
+for (int i=0; i<n; i++){
+    System.out.println("Vector 1 - digite el valor de la posicion "+i+":");
+    vector1[i]=teclado.nextInt();
 }
-System.out.println("Total a pagar: "+total);
+for (int i=0; i<n; i++){
+    System.out.println("Vector 2 - digite el valor de la posicion "+i+":");
+    vector2[i]=teclado.nextInt();
+}
+for (int i=0; i<n; i++){
+    vector3[i]=vector1[i]+vector2[i];
+}
+System.out.print("Vector 1: ");
+for (int i=0; i<n; i++){
+    System.out.print(vector1[i]+" ");
+}
+System.out.println();
+System.out.print("Vector 2: ");
+for (int i=0; i<n; i++){
+    System.out.print(vector2[i]+" ");
+}
+System.out.println();
+System.out.print("Vector 3 (suma): ");
+for (int i=0; i<n; i++){
+    System.out.print(vector3[i]+" ");
+}
+System.out.println();
 
 }
 

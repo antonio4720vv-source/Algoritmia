@@ -1,6 +1,6 @@
-package ejercicios.Ejercicio06;
+package ejercicios.Ejercicio05;
 import java.util.Scanner;
-public class Ejercicio6 {
+public class Ejercicio05 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);

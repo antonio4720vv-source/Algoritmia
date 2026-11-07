@@ -4,13 +4,19 @@ public class Ejercicio13 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-System.out.println("Digite un numero entero:");
-int numero=teclado.nextInt();
-if (numero%2==0){
-    System.out.println("El numero "+numero+" es par");
+double sueldo;
+do {
+    System.out.println("Digite el sueldo del empleado (mayor que 0):");
+    sueldo=teclado.nextDouble();
+} while (sueldo<=0);
+double nuevoSueldo;
+if (sueldo<1000){
+    nuevoSueldo=sueldo+sueldo*0.10;
 } else {
-    System.out.println("El numero "+numero+" es impar");
+    nuevoSueldo=sueldo+sueldo*0.05;
 }
+System.out.println("Salario anterior: "+sueldo);
+System.out.println("Salario nuevo: "+nuevoSueldo);
 
 }
 

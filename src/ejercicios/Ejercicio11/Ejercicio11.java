@@ -4,17 +4,19 @@ public class Ejercicio11 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-double capital;
-do {
-    System.out.println("Digite el valor del prestamo (mayor que 0):");
-    capital=teclado.nextDouble();
-} while (capital<=0);
-double interesMensual=capital*0.02;
-double interesAnual=interesMensual*12;
-double total=capital+interesAnual;
-System.out.println("Interes mensual (2%): "+interesMensual);
-System.out.println("Interes total en 12 meses: "+interesAnual);
-System.out.println("Monto total a pagar al cabo de 12 meses: "+total);
+System.out.println("Digite el valor de A:");
+int a=teclado.nextInt();
+System.out.println("Digite el valor de B:");
+int b=teclado.nextInt();
+System.out.println("Digite el valor de C:");
+int c=teclado.nextInt();
+System.out.println("Digite el valor de D:");
+int d=teclado.nextInt();
+System.out.println("Valores en orden inverso:");
+System.out.println("D="+d);
+System.out.println("C="+c);
+System.out.println("B="+b);
+System.out.println("A="+a);
 
 }
 

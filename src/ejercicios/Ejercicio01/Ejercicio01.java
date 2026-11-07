@@ -1,6 +1,6 @@
-package ejercicios.Ejercicio02;
+package ejercicios.Ejercicio01;
 
-public class suma {
+public class Ejercicio01 {
 
     public static void main(String[] suma) {
 

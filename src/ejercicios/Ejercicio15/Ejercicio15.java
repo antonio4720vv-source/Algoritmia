@@ -4,19 +4,25 @@ public class Ejercicio15 {
 
 public static void main(String[] args){
     Scanner teclado=new Scanner(System.in);
-double sueldo;
+double boleta;
 do {
-    System.out.println("Digite el sueldo del empleado (mayor que 0):");
-    sueldo=teclado.nextDouble();
-} while (sueldo<=0);
-double nuevoSueldo;
-if (sueldo<1000){
-    nuevoSueldo=sueldo+sueldo*0.10;
+    System.out.println("Digite el valor de la boleta (mayor que 0):");
+    boleta=teclado.nextDouble();
+} while (boleta<=0);
+int opcion;
+do {
+    System.out.println("La persona es estudiante o adulto mayor? (1=si, 2=no):");
+    opcion=teclado.nextInt();
+} while (opcion!=1 && opcion!=2);
+double total;
+if (opcion==1){
+    total=boleta-boleta*0.20;
+    System.out.println("Tiene descuento del 20%");
 } else {
-    nuevoSueldo=sueldo+sueldo*0.05;
+    total=boleta;
+    System.out.println("No tiene descuento");
 }
-System.out.println("Salario anterior: "+sueldo);
-System.out.println("Salario nuevo: "+nuevoSueldo);
+System.out.println("Total a pagar: "+total);
 
 }
 

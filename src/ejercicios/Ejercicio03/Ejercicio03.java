@@ -1,6 +1,6 @@
-package ejercicios.Ejercicio04;
+package ejercicios.Ejercicio03;
 import java.util.Scanner;
-public class Ejercicio4 {
+public class Ejercicio03 {
 public static void main(String[] args){
     double N1,N2;
     double Suma=0;
