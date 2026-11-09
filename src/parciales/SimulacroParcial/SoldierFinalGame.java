@@ -22,6 +22,7 @@ public class SoldierFinalGame {
 		int tamano=10;
 		int contadorRehenes = 0;
 		int contadorMercenarios = 0;
+		int minasDesactivadas;
 		int tablero[][] = new int[tamano][tamano];
 		int posXSoldado=0, posYSoldado=0;
 		String opcion;
@@ -162,6 +163,7 @@ public class SoldierFinalGame {
 			System.out.println("[DS] DISPARAR ABAJO");
 			System.out.println("[DD] DISPARAR DERECHA");
 			System.out.println("[DW] DISPARAR ARRIBA");
+			System.out.println("[M] DESACTIVAR MINAS");
 			System.out.println("[E] SALIR\n");
 			System.out.print("Digite la opción deseada: ");
 			opcion=leer.next().toUpperCase();
@@ -600,6 +602,25 @@ public class SoldierFinalGame {
 							}							
 						}else {
 							System.out.println("\n!!! RELOAD YOUR GUN !!!\n");
+						}
+					break;
+					
+					case "M":
+						minasDesactivadas = 0;
+						for(i=posXSoldado-1; i<=posXSoldado+1; i++) {
+							for(j=posYSoldado-1; j<=posYSoldado+1; j++) {
+								if(i >= 0 && i < tamano && j >= 0 && j < tamano) {
+									if(tablero[i][j]==9) {
+										tablero[i][j]=0;
+										minasDesactivadas++;
+									}
+								}
+							}
+						}
+						if(minasDesactivadas > 0) {
+							System.out.println("\n!!! MINAS DESACTIVADAS: " + minasDesactivadas + " !!!\n");
+						}else {
+							System.out.println("\n!!! NO HAY MINAS CERCA !!!\n");
 						}
 					break;
 					
