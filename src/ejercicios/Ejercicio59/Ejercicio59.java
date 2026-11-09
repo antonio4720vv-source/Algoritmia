@@ -1,47 +1,57 @@
 package ejercicios.Ejercicio59;
+
 import java.util.Scanner;
+
 public class Ejercicio59 {
 
-public static void main(String[] args){
-    Scanner teclado=new Scanner(System.in);
-int n;
-int m;
-do {
-    System.out.println("Digite el numero de filas (n):");
-    n=teclado.nextInt();
-} while (n<1);
-do {
-    System.out.println("Digite el numero de columnas (m):");
-    m=teclado.nextInt();
-} while (m<1);
-// Declarar la matriz de n filas x m columnas
-int[][] matriz=new int[n][m];
-int i;
-int j;
-// Cargar la matriz
-for (i=0; i<n; i++){
-    for (j=0; j<m; j++){
-        System.out.println("Digite el valor de la posicion ["+i+"]["+j+"]:");
-        matriz[i][j]=teclado.nextInt();
-    }
-}
-// Sumar todos los valores
-int suma=0;
-for (i=0; i<n; i++){
-    for (j=0; j<m; j++){
-        suma=suma+matriz[i][j];
-    }
-}
-// Imprimir la matriz
-System.out.println("La matriz es:");
-for (i=0; i<n; i++){
-    for (j=0; j<m; j++){
-        System.out.printf("[%3d]", matriz[i][j]);
-    }
-    System.out.println();
-}
-System.out.println("La suma de todos los valores es: "+suma);
+    public static void main(String[] args) {
 
-}
+        int i, j;
+        int n, m;
+        int acu=0;
 
+        Scanner leer = new Scanner(System.in);
+
+        do {
+            System.out.print("Digite el tamaño de las filas: ");
+            n=leer.nextInt();
+            if(n<=0) {
+                System.out.println("\n\t!!! Error... El tamaño de las filas debe ser positivo !!!\n");
+            }
+        }while(n<=0);
+
+        do {
+            System.out.print("Digite el tamaño de las columnas: ");
+            m=leer.nextInt();
+            if(m<=0) {
+                System.out.println("\n\t!!! Error... El tamaño de las columnas debe ser positivo !!!\n");
+            }
+        }while(m<=0);
+
+        int Mat[][] = new int [n][m];
+
+        System.out.println();
+        for(i=0; i<n; i++) {
+            for(j=0; j<m; j++) {
+                System.out.print("Digite un valor para Mat[" + i + "][" + j + "]: ");
+                Mat[i][j]=leer.nextInt();
+            }
+        }
+
+        for(i=0; i<n; i++) {
+            for(j=0; j<m; j++) {
+                acu = acu + Mat[i][j];
+            }
+        }
+
+        System.out.println();
+        for(i=0; i<n; i++) {
+            for(j=0; j<m; j++) {
+                System.out.print("[" + Mat[i][j] + "]");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nEl resultado de la suma es: " + acu);
+    }
 }
