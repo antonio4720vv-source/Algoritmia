@@ -17,7 +17,7 @@ do {
     productos=productos+1;
     // Preguntar hasta que responda S o N
     do {
-        System.out.println("¿Desea seguir comprando? (S/N):");
+        System.out.println("Desea seguir comprando? (S/N):");
         respuesta=teclado.next();
     } while (!respuesta.equalsIgnoreCase("S") && !respuesta.equalsIgnoreCase("N"));
 } while (respuesta.equalsIgnoreCase("S"));
