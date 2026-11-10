@@ -2,7 +2,7 @@ package parciales.SimulacroParcial2;
 
 import java.util.Scanner;
 
-public class SoldierFinalGame {
+public class SoldierFinalGame2 {
 	
 	public static void main(String[] args) {
 	
