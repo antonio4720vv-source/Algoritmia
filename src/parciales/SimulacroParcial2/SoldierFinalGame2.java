@@ -18,6 +18,7 @@ public class SoldierFinalGame2 {
 		int botiquines=2;
 		int portales=1;
 		int minas=3;
+		int movimientos=30;
 	
 		int tamano=10;
 		int contadorRehenes = 0;
@@ -110,7 +111,7 @@ public class SoldierFinalGame2 {
 		}
 		
 		System.out.println("SOLDAIER FINAL GAME 2 (mercenarios se mueven)");
-		System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + "\n");
+		System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + " | MOVIMIENTOS: " + movimientos + "\n");
 		System.out.println("╔══════════════════════════════╗");
 		for (i = 0; i < tamano; i++) {
 			System.out.print("║");
@@ -630,6 +631,9 @@ public class SoldierFinalGame2 {
 			// Solo reaparecen los que siguen vivos (si mataste 1 de 5, aparecen 4).
 			if((opcion.equals("A") || opcion.equals("S") || opcion.equals("D") || opcion.equals("W")) && ganador==false) {
 				
+				// Cada paso gasta un movimiento
+				movimientos--;
+				
 				// 1. Quitar los mercenarios del tablero y contar cuantos quedan vivos
 				int vivos = 0;
 				for (i = 0; i < tamano; i++) {
@@ -653,8 +657,15 @@ public class SoldierFinalGame2 {
 				}
 			}
 			
+			// Si se acaban los movimientos, pierde
+			if (movimientos <= 0 && ganador == false) {
+				ganador = true;
+				System.out.println("\n!!! SE ACABARON LOS MOVIMIENTOS - GAME OVER !!!\n");
+				tablero[posXSoldado][posYSoldado] = 10;
+			}
+			
 			System.out.println("SOLDAIER FINAL GAME 2 (mercenarios se mueven)");
-			System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + "\n");
+			System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + " | MOVIMIENTOS: " + movimientos + "\n");
 			System.out.println("╔══════════════════════════════╗");
 			for (i = 0; i < tamano; i++) {
 				System.out.print("║");
