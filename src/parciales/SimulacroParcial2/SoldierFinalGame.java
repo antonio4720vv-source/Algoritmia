@@ -109,7 +109,7 @@ public class SoldierFinalGame {
 			}
 		}
 		
-		System.out.println("SOLDAIER FINAL GAME");
+		System.out.println("SOLDAIER FINAL GAME 2 (mercenarios se mueven)");
 		System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + "\n");
 		System.out.println("╔══════════════════════════════╗");
 		for (i = 0; i < tamano; i++) {
@@ -653,7 +653,7 @@ public class SoldierFinalGame {
 				}
 			}
 			
-			System.out.println("SOLDAIER FINAL GAME");
+			System.out.println("SOLDAIER FINAL GAME 2 (mercenarios se mueven)");
 			System.out.println("\nVIDA: "+ vida + " | REHÉNES: " + contadorRehenes + " | MERCENARIOS: " + contadorMercenarios + " | BALAS: " + balas + "\n");
 			System.out.println("╔══════════════════════════════╗");
 			for (i = 0; i < tamano; i++) {
